@@ -11,8 +11,9 @@
 (def language-symbols #{\> \< \, \. \- \+ \[ \]})
 
 ;; Brainfuck grammar
-;; EXPR = < | > | + | - | , | . | LOOP | EXPR | eps
-;; LOOP = [ EXPR ]
+;; EXPR_LIST = EXPR EXPR_LIST | eps
+;; EXPR = < | > | + | - | , | . | LOOP
+;; LOOP = [ EXPR_LIST ]
 
 (defn get-cell [runtime-metadata] ((:tape runtime-metadata) (:ptr runtime-metadata)))
 
